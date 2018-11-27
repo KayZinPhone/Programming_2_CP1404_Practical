@@ -1,0 +1,1 @@
+MENU = """Songs to Learn 1.0 - by Lindsay Ward"""
