@@ -35,11 +35,15 @@ def get_fixed_filename(filename):
     # E.g. a lowercase letter followed by a capital, like "tN" should become "t_N"
     # Try doing this on paper first and then see if you can systematise it
 
-    # new_name = filename.replace(" ", "_").replace(".TXT", ".txt")
+    new_name = filename.replace(" ", "_").replace(".TXT", ".txt")
     # return new_name
     new_name1 = ""
     for i in range(1, len(filename)):
-        if (filename[i-1].islower() and filename[i].isupper()) or (filename[i-1].isupper() and filename[i].isspace() and filename[i+1].isupper()) or (filename[i].isupper() and filename[i-1].isupper()):
+        if (filename[i-1].islower() and filename[i].isupper()) \
+                or (filename[i-1].isupper() and filename[i].isspace() and filename[i+1].isupper()) \
+                or (filename[i].isupper() and filename[i-1].isupper())\
+                or (filename[i].isupper() and filename[i-1].isspace() and filename[i-2].islower()
+                or (filename[i-1].islower() and filename[i].isspace() and filename[i+1].islower())):
             new_name1 = new_name1+"_"+filename[i]
         else:
             new_name1 += filename[i]
